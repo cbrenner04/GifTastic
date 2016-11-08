@@ -38,6 +38,7 @@ function addButtons() {
       $('<button>').addClass('btn btn-primary hero-button')
                    // add a data attribute with the topic for later use
                    .attr('data-topic', topics[i])
+                   // the text of the button is the topic
                    .text(topics[i])
     );
   }
@@ -64,7 +65,7 @@ function addHeroButton() {
   // when the add-hero button is clicked
   $('.add-hero').on('click', function() {
     // push the value to the topics array
-    topics.push($('#addHero').val());
+    topics.push($('#addHero').val().trim());
     // re-render all the buttons
     addButtons();
     // clear the input -- this is because I am using `return false` so the page
