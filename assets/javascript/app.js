@@ -56,13 +56,13 @@ function addHeroButton() {
 function addGifs() {
   $(document).on('click', '.hero-button', function(){
     var searchTerm = $(this).data('topic').replace(' ', '+');
-    var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' +
+    var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' +
                    searchTerm + '&limit=10&api_key=dc6zaTOxFJmzC';
     $.ajax({ url: queryURL, method: 'GET' }).done(function(response) {
       $('#gifArea').empty();
       for (var i = 0; i < response.data.length; i++) {
         $('#gifArea').append(
-          $('<div>').addClass('col-xs-4 text-center').html(addImage(response, i))
+          $('<div>').addClass('pull-left').html(addImage(response, i))
                     .append($('<p>').text('rating: ' + response.data[i].rating))
         );
       }
